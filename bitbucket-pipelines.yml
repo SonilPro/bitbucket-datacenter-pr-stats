@@ -43,7 +43,7 @@ pipelines:
                         - screenshots/*.png
 
               - step:
-                    name: CSE 1.x extension with CSE 2.x runtime in Bitbucket 7.11.x compatibility
+                    name: CSE 1.x extension with CSE 2.x runtime in Bitbucket 7.16.x compatibility
                     caches:
                         - node
                         - maven
