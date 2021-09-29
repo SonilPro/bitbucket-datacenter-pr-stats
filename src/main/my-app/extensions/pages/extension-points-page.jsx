@@ -10,6 +10,8 @@ import './styles.css';
 const MyPage = () => {
     const extensions = useExtensions();
 
+    console.log(extensions);
+
     return (
         <PageContainer>
             <h2 className="my-header">tutorial.extension.points</h2>
