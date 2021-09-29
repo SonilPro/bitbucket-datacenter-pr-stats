@@ -25,13 +25,26 @@ function getLoaders({ isProductionEnv = false }) {
         },
 
         {
+            test: /\.css$/,
+            use: [
+                {
+                    loader: isProductionEnv ? MiniCssExtractPlugin.loader : 'style-loader',
+                },
+
+                {
+                    loader: 'css-loader',
+                    options: {
+                        sourceMap: true,
+                    },
+                },
+            ],
+        },
+
+        {
             test: /\.less$/,
             use: [
                 {
                     loader: isProductionEnv ? MiniCssExtractPlugin.loader : 'style-loader',
-                    options: {
-                        sourceMap: true,
-                    },
                 },
                 {
                     loader: 'css-loader',

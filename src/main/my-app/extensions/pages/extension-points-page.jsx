@@ -5,14 +5,14 @@ import { PageExtension } from '@atlassian/clientside-extensions';
 import PageContainer from '../components/page-container';
 import { useExtensions } from './extension-points.cse.graphql';
 
+import './styles.css';
+
 const MyPage = () => {
     const extensions = useExtensions();
 
-    console.log(extensions);
-
     return (
         <PageContainer>
-            <h2>tutorial.extension.points</h2>
+            <h2 className="my-header">tutorial.extension.points</h2>
         </PageContainer>
     );
 };
