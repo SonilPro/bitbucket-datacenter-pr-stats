@@ -5,7 +5,7 @@
     "author": "Atlassian Pty Ltd",
     "license": "Atlassian End User License",
     "dependencies": {
-        "@atlaskit/button": "^15.1.6",
+        "@atlaskit/button": "^16.1.2",
         "@atlassian/clientside-extensions": "^2.4.0",
         "@atlassian/clientside-extensions-components": "^2.4.0",
         "@atlassian/wrm-react-i18n": "0.8.1",
