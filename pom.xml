@@ -20,7 +20,7 @@
         <atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
         <frontend.maven.plugin.version>1.6</frontend.maven.plugin.version>
         <frontend.maven.plugin.install.directory>${project.build.directory}</frontend.maven.plugin.install.directory>
-        <nodeVersion>v12.13.0</nodeVersion>
+        <nodeVersion>v16.11.1</nodeVersion>
         <fe.cmd.install>install --prefer-offline --no-audit --no-save --no-optional</fe.cmd.install>
         <fe.cmd.build>build:prod</fe.cmd.build>
         <fe.cmd.build.dev>build:dev</fe.cmd.build.dev>

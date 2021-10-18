@@ -4,7 +4,7 @@ Bitbucket Server [Client-side Extension](https://developer.atlassian.com/server/
 
 ## Requirements
 
--   **Node** 12.13.0 (you can use nvm)
+-   **Node** 16.11.1 (you can use nvm)
 -   **Maven** 3.6.2
 -   **Java JDK** 1.8
 -   [**Atlassian SDK 8**](https://developer.atlassian.com/server/framework/atlassian-sdk/downloads/)
