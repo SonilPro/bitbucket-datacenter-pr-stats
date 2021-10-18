@@ -92,7 +92,6 @@ module.exports = (env, argv = {}) => {
             context: FRONTEND_SRC_DIR,
             plugins: [...plugins(!isProduction), clientsideExtensions],
 
-            // Required to have a single version of styled-components in the runtime
             optimization: {
                 splitChunks: {
                     cacheGroups: {
