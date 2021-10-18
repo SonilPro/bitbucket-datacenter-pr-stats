@@ -11,7 +11,7 @@ Bitbucket Server [Client-side Extension](https://developer.atlassian.com/server/
 
 ## Bitbucket
 
-This template includes the **Bitbucket** version `7.16.0` and it's using **Client-Side Extensions** version `2.4.0`.
+This template includes the **Bitbucket** version `7.16.0` and it's using **Client-Side Extensions** version `2.4.1`.
 
 ## Starting Bitbucket
 
