@@ -1,6 +1,6 @@
 {
     "name": "bitbucket-plugin-template",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "private": true,
     "author": "Atlassian Pty Ltd",
     "license": "Atlassian End User License",
@@ -62,11 +62,13 @@
         "webpack-merge": "4.2.2",
         "yargs": "^17.0.1"
     },
+    "optionalDependencies": {
+        "fsevents": "^2.1.2"
+    },
     "scripts": {
         "watch": "webpack --watch --display-modules --config ./config/webpack.config.js",
         "start": "atlas-package -DskipTests -Pwatch-mode && npm run dev-server ",
         "start:bitbucket": "atlas-run -DskipTests -DskipNpmInstall",
-        "start:bitbucket-ci": "yes \"WTF?! The yes command is needed to run Bitbucket on Pipelines \" | atlas-run -DskipTests -DskipNpmInstall",
         "build": "atlas-package -DskipTests",
         "build:prod": "webpack --config ./config/webpack.config.js",
         "build:dev": "webpack --config ./config/webpack.config.js --mode=development",
@@ -74,12 +76,11 @@
         "lint": "eslint './**/*.{js,jsx}'",
         "test": "jest --config ./config/jest/jest.config.js",
         "test:watch": "jest --config ./config/jest/jest.config.js --watch",
-        "test:ci": "start-server-and-test 'npm run start:bitbucket-ci' http://localhost:7990/bitbucket/rest/api/1.0/projects 'npm run test:integration:puppeteer'",
+        "test:ci": "start-server-and-test 'npm run start:bitbucket' http://localhost:7990/bitbucket/rest/api/1.0/projects 'npm run test:integration:puppeteer'",
         "test:integration:puppeteer": "node run-jest.js --config ./src/main/test/jest.config.js --runInBand --verbose"
     },
     "browserslist": [
-        "last 1 version",
-        "IE 11"
+        "last 2 versions"
     ],
     "prettier": {
         "tabWidth": 4,
