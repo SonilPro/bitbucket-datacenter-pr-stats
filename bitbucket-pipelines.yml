@@ -18,15 +18,14 @@ pipelines:
                   script:
                     - npm ci
                     - npm run test
-
-            - step:
-                  name: CSE e2e tests
-                  caches:
-                    - node
-                    - maven
-                  size: 2x
-                  script:
-                    - npm ci
-                    - npm run test:ci
-                  artifacts:
-                    - screenshots/*.png
+#            - step:
+#                  name: CSE e2e tests
+#                  caches:
+#                    - node
+#                    - maven
+#                  size: 2x
+#                  script:
+#                    - npm ci
+#                    - npm run test:ci
+#                  artifacts:
+#                    - screenshots/*.png

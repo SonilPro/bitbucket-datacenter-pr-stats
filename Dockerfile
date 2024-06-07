@@ -39,16 +39,6 @@ RUN set -x \
 
 ENV CHROME_BIN /usr/bin/google-chrome
 
-# TODO REMOVE THIS
-RUN apt-get install -y vim bash-completion less
-# Copy your source code into the Docker image
-COPY . /usr/src/app
-# Set the working directory to where you copied your source code
-WORKDIR /usr/src/app
-RUN rm -rf node_modules
-RUN npm ci
-RUN npm run build
-
 # Echo versions to the console
 RUN java -version
 RUN mvn -v
