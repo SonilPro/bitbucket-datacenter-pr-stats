@@ -5,13 +5,13 @@ Bitbucket Server [Client-side Extension](https://developer.atlassian.com/server/
 ## Requirements
 
 -   **Node** 16+ (you can use nvm)
--   **Maven** 3.6.2
--   **Java JDK** 1.8
+-   **Maven** 3.9.3
+-   **Java JDK** 17
 -   [**Atlassian SDK 8**](https://developer.atlassian.com/server/framework/atlassian-sdk/downloads/)
 
 ## Bitbucket
 
-This template includes the **Bitbucket** version `7.21.18` and it's using **Client-Side Extensions** version `2.4.1`.
+This template includes the **Bitbucket** version `9.0.0-eap04` and it's using **Client-Side Extensions** version `3.0.0`.
 
 ## Starting Bitbucket
 
@@ -112,52 +112,10 @@ In you have any other issues related to CSE check the [Debugging and troubleshoo
 
 If you don't plan to use the [`PageExtension`](https://developer.atlassian.com/server/framework/clientside-extensions/reference/api/extension-factories/page/) you can remove the `page-bootstrapper` dependency from the project:
 
-1. Update the `pom.xml` file.
-
-    ```patch
-    diff --git a/pom.xml b/pom.xml
-    --- a/pom.xml
-    +++ b/pom.xml
-    @@ -123,12 +123,6 @@
-                 <artifactId>gson</artifactId>
-                 <version>${gson.libversion}</version>
-             </dependency>
-    -        <!-- Page bootstrapper dependencies -->
-    -        <dependency>
-    -            <groupId>com.atlassian.plugins</groupId>
-    -            <artifactId>atlassian-clientside-extensions-page-bootstrapper</artifactId>
-    -            <version>${cse.version}</version>
-    -        </dependency>
-         </dependencies>
-
-         <build>
-    @@ -152,13 +146,6 @@
-                                 <dataVersion>${bitbucket.data.version}</dataVersion>
-                             </product>
-                         </products>
-    -                    <!-- https://developer.atlassian.com/server/framework/atlassian-sdk/bundling-extra-dependencies-in-an-obr/ -->
-    -                    <pluginDependencies>
-    -                        <pluginDependency>
-    -                            <groupId>com.atlassian.plugins</groupId>
-    -                            <artifactId>atlassian-clientside-extensions-page-bootstrapper</artifactId>
-    -                        </pluginDependency>
-    -                    </pluginDependencies>
-                         <!-- Needed to include the bootstrapper when starting the project with AMPS -->
-                         <pluginArtifacts>
-                             <pluginArtifact>
-    @@ -171,10 +158,6 @@
-                             <Atlassian-Plugin-Key>${atlassian.plugin.key}</Atlassian-Plugin-Key>
-                             <Atlassian-Scan-Folders>META-INF/plugin-descriptors</Atlassian-Scan-Folders>
-                             <Import-Package>
-    -                            <!-- https://developer.atlassian.com/server/framework/atlassian-sdk/bundling-extra-dependencies-in-an-obr/ -->
-    -                            <!-- The "com.atlassian.plugin.clientsideextensions" import is required by the page-bootstrapper package.
-    -                            If you don't need it, you can remove this line. -->
-    -                            com.atlassian.plugin.clientsideextensions;version="${cse.version}",
-                                 com.atlassian.plugin.osgi.bridge.external,
-                                 *
-                             </Import-Package>
-    ```
-
+1. Update the `pom.xml` file:
+   1. Remove the `atlassian-clientside-extensions-page-bootstrapper` dependency from the `dependencies` section
+   2. Remove the `atlassian-clientside-extensions-page-bootstrapper` dependency from the `pluginDependencies` section
+   3. Remove the `com.atlassian.plugin.clientsideextensions` import from the `Import-Package` section
 2. Delete the example extensions that are using `PageExtension` API:
     ```
     rm -r src/main/my-app/extensions/pages
