@@ -15,6 +15,6 @@ module.exports = (api) => {
             ],
             '@babel/preset-react',
         ],
-        plugins: ['@babel/plugin-syntax-dynamic-import', '@babel/plugin-proposal-class-properties'],
+        plugins: ['@babel/plugin-syntax-dynamic-import'],
     };
 };
