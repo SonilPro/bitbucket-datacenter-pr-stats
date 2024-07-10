@@ -20,14 +20,16 @@
     <properties>
         <atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
 
-        <amps.version>8.16.0</amps.version>
+        <amps.version>8.17.3</amps.version>
+
+        <bitbucket.version>9.0.0-rc1</bitbucket.version>
+        <bitbucket.data.version>${bitbucket.version}</bitbucket.data.version>
+        <platform.dependencies.version>7.0.14</platform.dependencies.version>
+
         <atlassian-clientside-extensions.version>3.0.0</atlassian-clientside-extensions.version>
         <atlassian.spring.scanner.version>3.0.1</atlassian.spring.scanner.version>
-        <bitbucket.version>9.0.0-eap04</bitbucket.version>
-        <bitbucket.data.version>${bitbucket.version}</bitbucket.data.version>
-        <platform.dependencies.version>7.0.5</platform.dependencies.version>
 
-        <frontend.maven.plugin.version>1.12.0</frontend.maven.plugin.version>
+        <frontend.maven.plugin.version>1.15.0</frontend.maven.plugin.version>
         <frontend.maven.plugin.install.directory>${project.build.directory}</frontend.maven.plugin.install.directory>
         <!-- Needs to be kept upto date with the .nvmrc -->
         <fe.node.version>22.4.1</fe.node.version>
@@ -52,6 +54,21 @@
     </dependencyManagement>
 
     <dependencies>
+        <dependency>
+            <groupId>com.atlassian.plugins</groupId>
+            <artifactId>atlassian-plugins-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.atlassian.plugins</groupId>
+            <artifactId>atlassian-plugins-webfragment-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.atlassian.plugins</groupId>
+            <artifactId>atlassian-plugins-webresource-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>com.atlassian.sal</groupId>
             <artifactId>sal-api</artifactId>
