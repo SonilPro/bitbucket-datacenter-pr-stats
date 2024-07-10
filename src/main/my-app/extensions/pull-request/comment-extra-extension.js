@@ -11,16 +11,16 @@ import MyApp from './my-app';
 export default PanelExtension.factory((pluginApi, context) => {
     return {
         hidden: false,
-        onAction: panelApi => {
+        onAction: (panelApi) => {
             const { pullRequest } = context;
 
             panelApi
-                .onMount(element => {
+                .onMount((element) => {
                     console.log('My comment panel extension', context);
 
                     render(<MyApp pullRequest={pullRequest} />, element);
                 })
-                .onUnmount(element => {
+                .onUnmount((element) => {
                     unmountComponentAtNode(element);
                 });
         },

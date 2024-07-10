@@ -1,8 +1,7 @@
-/* eslint-disable no-underscore-dangle */
 const PuppeteerEnvironment = require('jest-environment-puppeteer');
 
 const { doLogin, doLogout } = require('./helpers/login-helper.js');
-const { getUserLogin, getUserPassword } = require('./helpers/env-helper');
+const { getUserLogin, getUserPassword } = require('./helpers/env-helper.js');
 
 class BitbucketJestPuppeteerEnvironment extends PuppeteerEnvironment {
     async setup() {

@@ -1,4 +1,4 @@
-module.exports = api => {
+module.exports = (api) => {
     const isTest = api.env('test');
     const testOnly = (entry, defaultValue = {}) => (isTest ? entry : defaultValue);
 

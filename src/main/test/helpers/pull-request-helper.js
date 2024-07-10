@@ -1,5 +1,5 @@
 const { queries, waitFor } = require('pptr-testing-library');
-const { getRepository, getProject, getBaseUrl } = require('./env-helper');
+const { getRepository, getProject, getBaseUrl } = require('./env-helper.js');
 
 /**
  * @param {import("puppeteer").Page} page
@@ -13,7 +13,7 @@ async function createPullRequest(page, sourceBranch = 'basic_branching') {
     const project = getProject();
     const repository = getRepository();
 
-    const url = `${baseUrl}/rest/api/latest/projects/${project}/repos/${repository}/pull-requests`;
+    const prRestApiUrl = `${baseUrl}/rest/api/latest/projects/${project}/repos/${repository}/pull-requests`;
     const payload = {
         title: 'My Pull Request',
         description: '',
@@ -45,14 +45,14 @@ async function createPullRequest(page, sourceBranch = 'basic_branching') {
     };
 
     const pullRequestIdOrError = await page.evaluate(
-        async (url, payload) => {
+        async (url, requestBody) => {
             const response = await fetch(url, {
                 credentials: 'include',
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
                 },
-                body: JSON.stringify(payload),
+                body: JSON.stringify(requestBody),
             });
 
             if (response.status !== 201) {
@@ -65,7 +65,7 @@ async function createPullRequest(page, sourceBranch = 'basic_branching') {
 
             return pullRequestId;
         },
-        url,
+        prRestApiUrl,
         payload
     );
 
@@ -95,20 +95,21 @@ async function deletePullRequest(page, pullRequestId, version = 0) {
     const project = getProject();
     const repository = getRepository();
 
-    const url = `${baseUrl}/rest/api/latest/projects/${project}/repos/${repository}/pull-requests/${pullRequestId}`;
+    const prRestApiUrl = `${baseUrl}/rest/api/latest/projects/${project}/repos/${repository}/pull-requests/${pullRequestId}`;
     const payload = {
         version,
     };
 
     const result = await page.evaluate(
-        async (url, payload) => {
+        // eslint-disable-next-line consistent-return
+        async (url, requestBody) => {
             const response = await fetch(url, {
                 credentials: 'include',
                 method: 'DELETE',
                 headers: {
                     'content-type': 'application/json',
                 },
-                body: JSON.stringify(payload),
+                body: JSON.stringify(requestBody),
             });
 
             if (response.status !== 204) {
@@ -117,7 +118,7 @@ async function deletePullRequest(page, pullRequestId, version = 0) {
                 };
             }
         },
-        url,
+        prRestApiUrl,
         payload
     );
 
@@ -145,11 +146,11 @@ async function createRegularCommentOnPullRequest(
     const project = getProject();
     const repository = getRepository();
 
-    const url = `${baseUrl}/rest/api/latest/projects/${project}/repos/${repository}/pull-requests/${pullRequestId}/comments?diffType=EFFECTIVE`;
+    const diffRestApiUrl = `${baseUrl}/rest/api/latest/projects/${project}/repos/${repository}/pull-requests/${pullRequestId}/comments?diffType=EFFECTIVE`;
 
     await page.evaluate(
-        async (url, commentText) => {
-            const payload = { text: commentText, severity: 'NORMAL' };
+        async (url, text) => {
+            const payload = { text, severity: 'NORMAL' };
 
             await fetch(url, {
                 credentials: 'include',
@@ -160,7 +161,7 @@ async function createRegularCommentOnPullRequest(
                 body: JSON.stringify(payload),
             });
         },
-        url,
+        diffRestApiUrl,
         commentText
     );
 

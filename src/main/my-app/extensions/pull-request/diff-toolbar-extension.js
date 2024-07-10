@@ -13,8 +13,8 @@ export default ModalExtension.factory((pluginApi, context) => {
         hidden: false,
         iconAfter,
         label: 'My diff toolbar extension',
-        onAction: modalApi => {
-            modalApi.onMount(container => {
+        onAction: (modalApi) => {
+            modalApi.onMount((container) => {
                 modalApi.setTitle('My diff toolbar extension!');
 
                 modalApi.setActions([
@@ -26,6 +26,7 @@ export default ModalExtension.factory((pluginApi, context) => {
                     },
                 ]);
 
+                // eslint-disable-next-line no-param-reassign -- normally React or something else would be doing this
                 container.innerHTML = `
             		<div>
             			<h3>Hello there!</h3>

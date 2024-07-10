@@ -40,7 +40,7 @@ async function disableAnimations(page) {
  * @return {Promise<string>}
  */
 async function debugElement(element) {
-    return element.evaluate(node => node.outerHTML);
+    return element.evaluate((node) => node.outerHTML);
 }
 
 /**

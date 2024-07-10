@@ -4,6 +4,7 @@ const {
     getBrowserHeight,
     isDebugModeEnabled,
     getSlowModeDelay,
+    // eslint-disable-next-line import/extensions -- we need this for resolution to work
 } = require('./src/main/test/helpers/env-helper.js');
 
 const debugMode = isDebugModeEnabled();

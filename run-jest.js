@@ -1,5 +1,7 @@
 /* eslint-env node */
+// eslint-disable-next-line import/no-extraneous-dependencies
 const yargs = require('yargs');
+// eslint-disable-next-line import/no-extraneous-dependencies
 const { hideBin } = require('yargs/helpers');
 
 const { argv } = yargs(hideBin(process.argv));
@@ -35,7 +37,7 @@ const config = {
 process.env.__CONFIG__ = JSON.stringify(config);
 
 // Remove all of the custom args
-[...Object.keys(config), '_', '$0'].forEach(key => {
+[...Object.keys(config), '_', '$0'].forEach((key) => {
     delete argv[key];
 });
 
@@ -55,4 +57,5 @@ process.argv = [
 ];
 
 // Call jest
-require('jest/bin/jest.js');
+// eslint-disable-next-line import/no-extraneous-dependencies
+require('jest/bin/jest');

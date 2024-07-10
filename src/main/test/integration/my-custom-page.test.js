@@ -1,7 +1,9 @@
+/* global page */
+
 const { queries } = require('pptr-testing-library');
 
-const { clickOnAndWaitForPageLoad, navigateTo } = require('../helpers/puppeteer-helper');
-const { getDashboardUrl } = require('../helpers/url-helper');
+const { clickOnAndWaitForPageLoad, navigateTo } = require('../helpers/puppeteer-helper.js');
+const { getDashboardUrl } = require('../helpers/url-helper.js');
 
 describe('My custom page', () => {
     const pageLabel = 'My custom page';
@@ -10,7 +12,7 @@ describe('My custom page', () => {
     /** @type {import("puppeteer").ElementHandle} */
     let $document;
 
-    beforeEach(async done => {
+    beforeEach(async (done) => {
         $document = await navigateTo(page, getDashboardUrl());
 
         done();

@@ -1,19 +1,21 @@
+/* global page */
+
 const { queries, waitFor } = require('pptr-testing-library');
 
-const { navigateTo } = require('../helpers/puppeteer-helper');
-const { disablePullRequestOnBoarding } = require('../helpers/bitbucket-helper');
-const { getPullRequestUrl } = require('../helpers/url-helper');
+const { navigateTo } = require('../helpers/puppeteer-helper.js');
+const { disablePullRequestOnBoarding } = require('../helpers/bitbucket-helper.js');
+const { getPullRequestUrl } = require('../helpers/url-helper.js');
 const {
     createPullRequest,
     deletePullRequest,
     createRegularCommentOnPullRequest,
     waitForCseToBeLoaded,
-} = require('../helpers/pull-request-helper');
+} = require('../helpers/pull-request-helper.js');
 
 describe('Pull Request demo extensions', () => {
     let pullRequestId;
 
-    beforeAll(async done => {
+    beforeAll(async (done) => {
         await disablePullRequestOnBoarding(page);
         ({ pullRequestId } = await createPullRequest(page));
         await createRegularCommentOnPullRequest(page, pullRequestId);
@@ -21,7 +23,7 @@ describe('Pull Request demo extensions', () => {
         done();
     });
 
-    afterAll(async done => {
+    afterAll(async (done) => {
         await deletePullRequest(page, pullRequestId);
 
         done();
@@ -30,7 +32,7 @@ describe('Pull Request demo extensions', () => {
     /** @type {import("puppeteer").ElementHandle} */
     let $document;
 
-    beforeEach(async done => {
+    beforeEach(async (done) => {
         $document = await navigateTo(page, getPullRequestUrl(pullRequestId));
         await waitForCseToBeLoaded($document);
 

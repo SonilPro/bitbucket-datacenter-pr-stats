@@ -1,4 +1,4 @@
-import extension from './action-extension';
+import extension from './action-extension.js';
 
 describe('action extension', () => {
     it('should register  extension', () => {

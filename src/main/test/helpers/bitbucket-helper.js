@@ -7,9 +7,9 @@ const { getBaseUrl } = require('./env-helper.js');
 async function disablePullRequestOnBoarding(page) {
     console.debug('[OnBoarding]: Disabling feature on-boarding...');
 
-    const baseUrl = getBaseUrl();
+    const serverBaseUrl = getBaseUrl();
 
-    await page.evaluate(async baseUrl => {
+    await page.evaluate(async (baseUrl) => {
         await fetch(`${baseUrl}/rest/chaperone/1/chaperone/7.0-pull-request`, {
             credentials: 'include',
             method: 'PUT',
@@ -18,7 +18,7 @@ async function disablePullRequestOnBoarding(page) {
             },
             body: 'the-value-doesnt-matter',
         });
-    }, baseUrl);
+    }, serverBaseUrl);
 
     console.debug('[OnBoarding]: Feature on-boarding disabled...');
 }

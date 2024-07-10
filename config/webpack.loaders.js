@@ -98,4 +98,4 @@ function getLoaders({ isProductionEnv = false }) {
     ];
 }
 
-module.exports.loaders = isProduction => getLoaders(isProduction);
+module.exports.loaders = (isProduction) => getLoaders(isProduction);

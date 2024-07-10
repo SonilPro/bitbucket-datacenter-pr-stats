@@ -33,7 +33,7 @@ const watchConfig = {
     devtool: 'inline-source-map',
 };
 
-const devConfig = env => {
+const devConfig = (env) => {
     return merge([
         {
             optimization: {

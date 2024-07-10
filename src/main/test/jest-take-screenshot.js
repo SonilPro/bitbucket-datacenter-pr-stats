@@ -1,3 +1,4 @@
+/* global page */
 /* Source: https://github.com/smooth-code/jest-puppeteer/issues/131#issuecomment-445028965 */
 const path = require('path');
 const mkdirp = require('mkdirp');
@@ -5,7 +6,7 @@ const mkdirp = require('mkdirp');
 const ROOT_DIR = path.resolve(__dirname, './../../../');
 const screenshotsPath = path.resolve(ROOT_DIR, 'screenshots');
 
-const toFilename = s => s.replace(/[^a-z0-9.-]+/gi, '_');
+const toFilename = (s) => s.replace(/[^a-z0-9.-]+/gi, '_');
 
 export async function takeScreenshot(testName, pageInstance = page) {
     console.debug('[Screenshot]: Creating a screenshot after finishing test...');
@@ -38,7 +39,7 @@ afterAll(() => screenshotPromise);
  * have access to the test result, test name and page instance at the same time.
  */
 jasmine.getEnv().addReporter({
-    specDone: async result => {
+    specDone: async (result) => {
         screenshotPromise = screenshotPromise.catch().then(() => takeScreenshot(result.fullName));
     },
 });

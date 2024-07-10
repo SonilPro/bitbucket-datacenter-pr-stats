@@ -30,7 +30,7 @@ const getRepositoryUrl = () => {
  * @param {number} pullRequestId
  * @return {string}
  */
-const getPullRequestUrl = pullRequestId => {
+const getPullRequestUrl = (pullRequestId) => {
     const repoUrl = getRepositoryUrl();
 
     return `${repoUrl}/pull-requests/${pullRequestId}`;

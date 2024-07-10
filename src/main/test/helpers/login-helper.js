@@ -1,5 +1,5 @@
-const { navigateTo } = require('./puppeteer-helper');
-const { getLoginUrl, getLogoutUrl } = require('./url-helper');
+const { navigateTo } = require('./puppeteer-helper.js');
+const { getLoginUrl, getLogoutUrl } = require('./url-helper.js');
 
 /**
  * @param {import("puppeteer").Page} page
