@@ -3,6 +3,7 @@ import { ButtonExtension } from '@atlassian/clientside-extensions';
 /**
  * @clientside-extension
  * @extension-point bitbucket.ui.pullrequest.overview.summary
+ * @condition class com.atlassian.myapp.condition.AlwaysTrueCondition
  */
 export default ButtonExtension.factory((pluginApi, context) => {
     // A glyph name from '@atlaskit/icon/glyph/add-circle';
