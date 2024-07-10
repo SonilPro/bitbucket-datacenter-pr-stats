@@ -6,8 +6,8 @@
     "license": "Atlassian End User License",
     "dependencies": {
         "@atlaskit/button": "^16.1.2",
-        "@atlassian/clientside-extensions": "^2.4.1",
-        "@atlassian/clientside-extensions-components": "^2.4.1",
+        "@atlassian/clientside-extensions": "^3.0.1",
+        "@atlassian/clientside-extensions-components": "^3.0.1",
         "@atlassian/wrm-react-i18n": "0.8.1",
         "prop-types": "15.7.2",
         "react": "16.12.0",
