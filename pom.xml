@@ -31,8 +31,9 @@
 
         <frontend.maven.plugin.version>1.12.0</frontend.maven.plugin.version>
         <frontend.maven.plugin.install.directory>${project.build.directory}</frontend.maven.plugin.install.directory>
-        <fe.node.version>16.11.1</fe.node.version>
-        <fe.cmd.install>install --prefer-offline --no-audit --no-save --no-optional</fe.cmd.install>
+        <!-- Needs to be kept upto date with the .nvmrc -->
+        <fe.node.version>22.4.1</fe.node.version>
+        <fe.cmd.install>install --prefer-offline --no-audit --no-save --no-optional --legacy-peer-deps</fe.cmd.install>
         <fe.cmd.build>build:prod</fe.cmd.build>
         <fe.cmd.build.dev>build:dev</fe.cmd.build.dev>
 
@@ -160,6 +161,9 @@
                     <nodeVersion>v${fe.node.version}</nodeVersion>
                     <installDirectory>${frontend.maven.plugin.install.directory}</installDirectory>
                     <workingDirectory>${basedir}</workingDirectory>
+                    <environmentVariables>
+                        <NODE_OPTIONS>--openssl-legacy-provider</NODE_OPTIONS>
+                    </environmentVariables>
                 </configuration>
                 <executions>
                     <!-- Install NodeJS and modules -->
