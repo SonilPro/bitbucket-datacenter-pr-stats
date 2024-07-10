@@ -1,5 +1,5 @@
 const TerserPlugin = require('terser-webpack-plugin');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const webpack = require('webpack');
 const ClientsideExtensionWebpackPlugin = require('@atlassian/clientside-extensions-webpack-plugin');
 
