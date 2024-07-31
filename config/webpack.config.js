@@ -1,17 +1,17 @@
-const TerserPlugin = require('terser-webpack-plugin');
-const { merge } = require('webpack-merge');
-const webpack = require('webpack');
-const ClientsideExtensionWebpackPlugin = require('@atlassian/clientside-extensions-webpack-plugin');
+import TerserPlugin from 'terser-webpack-plugin';
+import { merge } from 'webpack-merge';
+import webpack from 'webpack';
+import ClientsideExtensionWebpackPlugin from '@atlassian/clientside-extensions-webpack-plugin';
 
-const {
+import {
     DEV_SERVER_HOST,
     DEV_SERVER_PORT,
     FRONTEND_OUTPUT_DIR,
     FRONTEND_SRC_DIR,
-} = require('./webpack.constants');
+} from './webpack-constants.js';
 
-const { plugins } = require('./webpack.plugins');
-const { loaders } = require('./webpack.loaders');
+import plugins from './webpack-plugins.js';
+import { loaders } from './webpack-loaders.js';
 
 const clientsideExtensions = new ClientsideExtensionWebpackPlugin({
     cwd: FRONTEND_SRC_DIR,
@@ -69,7 +69,7 @@ const prodConfig = {
     devtool: 'source-map',
 };
 
-module.exports = (env, argv = {}) => {
+export default (env, argv = {}) => {
     const isProduction = argv.mode !== 'development';
     const modeConfig = isProduction ? prodConfig : devConfig(env);
 

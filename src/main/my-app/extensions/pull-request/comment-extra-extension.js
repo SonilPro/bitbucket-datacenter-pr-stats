@@ -2,7 +2,7 @@ import { PanelExtension } from '@atlassian/clientside-extensions';
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 
-import MyApp from './my-app';
+import { MyApp } from './myapp.js';
 
 /**
  * @clientside-extension

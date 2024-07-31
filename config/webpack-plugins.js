@@ -1,6 +1,6 @@
-const WrmPlugin = require('atlassian-webresource-webpack-plugin');
-const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
-const { PLUGIN_KEY, WRM_OUTPUT, PROVIDED_DEPENDENCIES } = require('./webpack.constants');
+import WrmPlugin from 'atlassian-webresource-webpack-plugin';
+import DuplicatePackageCheckerPlugin from 'duplicate-package-checker-webpack-plugin';
+import { PLUGIN_KEY, WRM_OUTPUT, PROVIDED_DEPENDENCIES } from './webpack-constants.js';
 
 const plugins = (shouldWatch) => [
     new WrmPlugin({
@@ -14,6 +14,4 @@ const plugins = (shouldWatch) => [
     new DuplicatePackageCheckerPlugin(),
 ];
 
-module.exports = {
-    plugins,
-};
+export default plugins;

@@ -5,7 +5,7 @@ describe('action extension', () => {
         const attributes = extension();
 
         expect(attributes).toMatchInlineSnapshot(`
-            Object {
+            {
               "hidden": false,
               "label": "My pull request action extension",
               "onAction": [Function],

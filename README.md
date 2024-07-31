@@ -49,7 +49,7 @@ To build your plugin you should rename the **group id**, **artifact id** and the
 
 You should find and replace those values in all the files:
 
--   `config/webpack.constants.js` - `PLUGIN_KEY` const
+-   `config/webpack-constants.js` - `PLUGIN_KEY` const
 -   `pom.xml` - `groupId` and `artifactId` tags
 -   `package.json` - `name` field
 

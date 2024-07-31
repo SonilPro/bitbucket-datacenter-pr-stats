@@ -1,6 +1,6 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-const { I18N_FILES } = require('./webpack.constants');
+import { I18N_FILES } from './webpack-constants.js';
 
 function getLoaders({ isProductionEnv = false }) {
     return [
@@ -98,4 +98,4 @@ function getLoaders({ isProductionEnv = false }) {
     ];
 }
 
-module.exports.loaders = (isProduction) => getLoaders(isProduction);
+export const loaders = (isProduction) => getLoaders(isProduction);
