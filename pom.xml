@@ -22,7 +22,7 @@
 
         <amps.version>8.17.3</amps.version>
 
-        <bitbucket.version>9.0.0-rc1</bitbucket.version>
+        <bitbucket.version>9.0.0</bitbucket.version>
         <bitbucket.data.version>${bitbucket.version}</bitbucket.data.version>
         <platform.dependencies.version>7.0.14</platform.dependencies.version>
 
