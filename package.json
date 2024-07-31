@@ -70,7 +70,7 @@
         "fsevents": "^2.3.3"
     },
     "scripts": {
-        "watch": "NODE_OPTIONS=\"--openssl-legacy-provider\" NODE_ENV=\"development\" webpack --watch --display-modules --config ./config/webpack.config.js",
+        "watch": "NODE_OPTIONS=\"--openssl-legacy-provider\" NODE_ENV=\"development\" webpack --watch --config ./config/webpack.config.js",
         "start": "atlas-package -DskipTests -Pwatch-mode && npm run dev-server ",
         "start:bitbucket": "atlas-run -DskipTests -DskipNpmInstall",
         "build": "atlas-package -DskipTests",
