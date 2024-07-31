@@ -30,7 +30,6 @@ const watchConfig = {
         },
     },
     plugins: [new webpack.HotModuleReplacementPlugin()],
-    devtool: 'inline-source-map',
 };
 
 const devConfig = (env) => {
@@ -44,6 +43,7 @@ const devConfig = (env) => {
                 filename: '[name].js',
                 chunkFilename: '[name].chunk.js',
             },
+            devtool: false,
         },
         env === 'dev-server' && watchConfig,
     ]);
