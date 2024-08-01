@@ -16,7 +16,7 @@ export default [
         ignores: ['node_modules/*', 'target/*', 'atlassian/*', 'static/*'],
     },
     ...fixupConfigRules(
-        compat.extends('airbnb', 'plugin:prettier/recommended', 'plugin:react/recommended')
+        compat.extends('airbnb', 'plugin:prettier/recommended', 'plugin:react/recommended'),
     ),
     {
         plugins: {
@@ -94,6 +94,8 @@ export default [
             'import/no-unresolved': 'warn',
             'react/default-props-match-prop-types': 'warn',
             'react/forbid-component-props': 'warn',
+            'react/jsx-uses-react': 'off',
+            'react/react-in-jsx-scope': 'off',
         },
     },
     {

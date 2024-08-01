@@ -1,5 +1,4 @@
 import React from 'react';
-import { object } from 'prop-types';
 import Button from '@atlaskit/button';
 // eslint-disable-next-line import/no-unresolved -- No Node module, this comes from the product at runtime
 import * as formatter from 'wrm/i18n';
@@ -17,10 +16,5 @@ function MyApp({ pullRequest }) {
         </div>
     );
 }
-
-MyApp.propTypes = {
-    // eslint-disable-next-line react/forbid-prop-types
-    pullRequest: object.isRequired,
-};
 
 export { MyApp };
