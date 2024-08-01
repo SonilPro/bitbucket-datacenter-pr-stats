@@ -33,7 +33,7 @@
         <frontend.maven.plugin.install.directory>${project.build.directory}</frontend.maven.plugin.install.directory>
         <!-- Needs to be kept upto date with the .nvmrc -->
         <fe.node.version>22.4.1</fe.node.version>
-        <fe.cmd.install>install --prefer-offline --no-audit --no-save --no-optional --legacy-peer-deps</fe.cmd.install>
+        <fe.cmd.install>ci --no-audit</fe.cmd.install>
         <fe.cmd.build>build:prod</fe.cmd.build>
         <fe.cmd.build.dev>build:dev</fe.cmd.build.dev>
 
