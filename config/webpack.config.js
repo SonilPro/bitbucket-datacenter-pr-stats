@@ -1,14 +1,8 @@
 import TerserPlugin from 'terser-webpack-plugin';
 import { merge } from 'webpack-merge';
-import webpack from 'webpack';
 import ClientsideExtensionWebpackPlugin from '@atlassian/clientside-extensions-webpack-plugin';
 
-import {
-    DEV_SERVER_HOST,
-    DEV_SERVER_PORT,
-    FRONTEND_OUTPUT_DIR,
-    FRONTEND_SRC_DIR,
-} from './webpack-constants.js';
+import { DEV_SERVER_HOST, DEV_SERVER_PORT, FRONTEND_OUTPUT_DIR, FRONTEND_SRC_DIR } from './webpack-constants.js';
 
 import plugins from './webpack-plugins.js';
 import { loaders } from './webpack-loaders.js';
@@ -22,14 +16,23 @@ const watchConfig = {
     devServer: {
         host: DEV_SERVER_HOST,
         port: DEV_SERVER_PORT,
-        overlay: true,
-        hot: true,
+        allowedHosts: 'auto',
+        client: {
+            overlay: {
+                errors: false,
+                warnings: false,
+                runtimeErrors: false,
+            },
+            progress: true,
+        },
+        compress: false,
         headers: {
             'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Headers': '*',
         },
+        hot: false,
+        liveReload: true,
     },
-    plugins: [new webpack.HotModuleReplacementPlugin()],
 };
 
 const devConfig = (env) => {
@@ -45,7 +48,7 @@ const devConfig = (env) => {
             },
             devtool: false,
         },
-        env === 'dev-server' && watchConfig,
+        env['dev-server'] == true && watchConfig,
     ]);
 };
 
