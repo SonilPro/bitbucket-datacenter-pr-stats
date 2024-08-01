@@ -20,10 +20,7 @@ const I18N_FILES = sync('**/*.properties', {
     absolute: true,
 });
 
-const WRM_OUTPUT = join(
-    FRONTEND_OUTPUT_DIR,
-    'META-INF/plugin-descriptors/wr-webpack-bundles.xml'
-);
+const WRM_OUTPUT = join(FRONTEND_OUTPUT_DIR, 'META-INF/plugin-descriptors/wr-webpack-bundles.xml');
 
 // Map of dependence's modules provided by Bitbucket in runtime
 const PROVIDED_DEPENDENCIES = {
