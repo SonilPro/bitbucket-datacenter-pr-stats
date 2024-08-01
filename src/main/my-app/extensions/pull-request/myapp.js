@@ -1,4 +1,3 @@
-import React from 'react';
 import Button from '@atlaskit/button';
 // eslint-disable-next-line import/no-unresolved -- No Node module, this comes from the product at runtime
 import * as formatter from 'wrm/i18n';

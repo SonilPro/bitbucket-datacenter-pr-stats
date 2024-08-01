@@ -2,7 +2,12 @@ import TerserPlugin from 'terser-webpack-plugin';
 import { merge } from 'webpack-merge';
 import ClientsideExtensionWebpackPlugin from '@atlassian/clientside-extensions-webpack-plugin';
 
-import { DEV_SERVER_HOST, DEV_SERVER_PORT, FRONTEND_OUTPUT_DIR, FRONTEND_SRC_DIR } from './webpack-constants.js';
+import {
+    DEV_SERVER_HOST,
+    DEV_SERVER_PORT,
+    FRONTEND_OUTPUT_DIR,
+    FRONTEND_SRC_DIR,
+} from './webpack-constants.js';
 
 import plugins from './webpack-plugins.js';
 import { loaders } from './webpack-loaders.js';
@@ -48,7 +53,7 @@ const devConfig = (env) => {
             },
             devtool: false,
         },
-        env['dev-server'] == true && watchConfig,
+        Boolean(env['dev-server']) && watchConfig,
     ]);
 };
 

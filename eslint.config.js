@@ -16,7 +16,7 @@ export default [
         ignores: ['node_modules/*', 'target/*', 'atlassian/*', 'static/*'],
     },
     ...fixupConfigRules(
-        compat.extends('airbnb', 'plugin:prettier/recommended', 'plugin:react/recommended'),
+        compat.extends('airbnb', 'plugin:prettier/recommended', 'plugin:react/recommended')
     ),
     {
         plugins: {
@@ -71,14 +71,11 @@ export default [
             'no-console': 'off',
             'no-undef': 'warn',
             'no-param-reassign': 'warn',
-            'react/forbid-prop-types': 'warn',
-            'react/prop-types': 'warn',
             'react/destructuring-assignment': 'warn',
             'import/no-extraneous-dependencies': 'warn',
             'jsx-a11y/label-has-associated-control': 'warn',
             'no-return-assign': 'warn',
             'react/static-property-placement': 'warn',
-            'react/no-unused-prop-types': 'warn',
             'react/sort-comp': 'warn',
             'class-methods-use-this': 'warn',
             'react/state-in-constructor': 'warn',
@@ -92,10 +89,10 @@ export default [
             'import/order': 'warn',
             'no-unused-expressions': 'warn',
             'import/no-unresolved': 'warn',
-            'react/default-props-match-prop-types': 'warn',
             'react/forbid-component-props': 'warn',
             'react/jsx-uses-react': 'off',
             'react/react-in-jsx-scope': 'off',
+            'react/prop-types': 'off',
         },
     },
     {
