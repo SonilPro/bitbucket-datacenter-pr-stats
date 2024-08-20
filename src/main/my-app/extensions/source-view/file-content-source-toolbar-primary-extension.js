@@ -8,6 +8,7 @@ export default ButtonExtension.factory((pluginApi, context) => {
     return {
         label: 'My source toolbar primary extension',
         onAction: () => {
+            // eslint-disable-next-line no-alert -- this is just demo code making it obvious
             alert(
                 'Tutorial: your extension point is rendering buttons correctly 🎉. This is the context received: ',
                 context

@@ -1,17 +1,16 @@
-const TerserPlugin = require('terser-webpack-plugin');
-const merge = require('webpack-merge');
-const webpack = require('webpack');
-const ClientsideExtensionWebpackPlugin = require('@atlassian/clientside-extensions-webpack-plugin');
+import TerserPlugin from 'terser-webpack-plugin';
+import { merge } from 'webpack-merge';
+import ClientsideExtensionWebpackPlugin from '@atlassian/clientside-extensions-webpack-plugin';
 
-const {
+import {
     DEV_SERVER_HOST,
     DEV_SERVER_PORT,
     FRONTEND_OUTPUT_DIR,
     FRONTEND_SRC_DIR,
-} = require('./webpack.constants');
+} from './webpack-constants.js';
 
-const { plugins } = require('./webpack.plugins');
-const { loaders } = require('./webpack.loaders');
+import plugins from './webpack-plugins.js';
+import { loaders } from './webpack-loaders.js';
 
 const clientsideExtensions = new ClientsideExtensionWebpackPlugin({
     cwd: FRONTEND_SRC_DIR,
@@ -22,18 +21,26 @@ const watchConfig = {
     devServer: {
         host: DEV_SERVER_HOST,
         port: DEV_SERVER_PORT,
-        overlay: true,
-        hot: true,
+        allowedHosts: 'auto',
+        client: {
+            overlay: {
+                errors: false,
+                warnings: false,
+                runtimeErrors: false,
+            },
+            progress: true,
+        },
+        compress: false,
         headers: {
             'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Headers': '*',
         },
+        hot: false,
+        liveReload: true,
     },
-    plugins: [new webpack.HotModuleReplacementPlugin()],
-    devtool: 'inline-source-map',
 };
 
-const devConfig = env => {
+const devConfig = (env) => {
     return merge([
         {
             optimization: {
@@ -44,8 +51,9 @@ const devConfig = env => {
                 filename: '[name].js',
                 chunkFilename: '[name].chunk.js',
             },
+            devtool: false,
         },
-        env === 'dev-server' && watchConfig,
+        Boolean(env['dev-server']) && watchConfig,
     ]);
 };
 
@@ -69,7 +77,7 @@ const prodConfig = {
     devtool: 'source-map',
 };
 
-module.exports = (env, argv = {}) => {
+export default (env, argv = {}) => {
     const isProduction = argv.mode !== 'development';
     const modeConfig = isProduction ? prodConfig : devConfig(env);
 

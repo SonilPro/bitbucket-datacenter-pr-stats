@@ -1,10 +1,10 @@
-import React from 'react';
-import { object } from 'prop-types';
 import Button from '@atlaskit/button';
+// eslint-disable-next-line import/no-unresolved -- No Node module, this comes from the product at runtime
 import * as formatter from 'wrm/i18n';
+// eslint-disable-next-line import/no-unresolved -- No Node module, this comes from the product at runtime
 import * as navbuilder from 'bitbucket/util/navbuilder';
 
-export default function MyApp({ pullRequest }) {
+function MyApp({ pullRequest }) {
     const pullRequestUrl = navbuilder.pullRequest(pullRequest).build();
 
     return (
@@ -16,6 +16,4 @@ export default function MyApp({ pullRequest }) {
     );
 }
 
-MyApp.propTypes = {
-    pullRequest: object.isRequired,
-};
+export { MyApp };

@@ -1,26 +1,26 @@
-const path = require('path');
-const glob = require('glob');
+import { join, resolve } from 'path';
+import { sync } from 'glob';
 
-const rootDir = path.resolve(__dirname, '..');
-const srcDir = path.join(rootDir, 'src');
+// eslint-disable-next-line no-underscore-dangle
+const __dirname = import.meta.dirname;
 
-const I18N_SRC_DIR = path.join(srcDir, 'main/resources/i18n');
-const FRONTEND_SRC_DIR = path.join(srcDir, 'main/my-app');
-const FRONTEND_OUTPUT_DIR = path.join(rootDir, 'target', 'classes');
+const rootDir = resolve(__dirname, '..');
+const srcDir = join(rootDir, 'src');
+
+const I18N_SRC_DIR = join(srcDir, 'main/resources/i18n');
+const FRONTEND_SRC_DIR = join(srcDir, 'main/my-app');
+const FRONTEND_OUTPUT_DIR = join(rootDir, 'target', 'classes');
 
 // Plugin key needs to match the one provide in atlassian-plugin.xml file
 const PLUGIN_KEY = 'com.atlassian.myapp.bitbucket-plugin-template';
 
 // Load i18n properties files
-const I18N_FILES = glob.sync('**/*.properties', {
+const I18N_FILES = sync('**/*.properties', {
     cwd: I18N_SRC_DIR,
     absolute: true,
 });
 
-const WRM_OUTPUT = path.join(
-    FRONTEND_OUTPUT_DIR,
-    'META-INF/plugin-descriptors/wr-webpack-bundles.xml'
-);
+const WRM_OUTPUT = join(FRONTEND_OUTPUT_DIR, 'META-INF/plugin-descriptors/wr-webpack-bundles.xml');
 
 // Map of dependence's modules provided by Bitbucket in runtime
 const PROVIDED_DEPENDENCIES = {
@@ -84,7 +84,7 @@ const PROVIDED_DEPENDENCIES = {
 const DEV_SERVER_PORT = 3333;
 const DEV_SERVER_HOST = 'localhost';
 
-module.exports = {
+export {
     srcDir,
     I18N_SRC_DIR,
     FRONTEND_SRC_DIR,

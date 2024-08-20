@@ -1,11 +1,11 @@
-import extension from './action-extension';
+import extension from './action-extension.js';
 
 describe('action extension', () => {
     it('should register  extension', () => {
         const attributes = extension();
 
         expect(attributes).toMatchInlineSnapshot(`
-            Object {
+            {
               "hidden": false,
               "label": "My pull request action extension",
               "onAction": [Function],

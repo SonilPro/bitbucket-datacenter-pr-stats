@@ -1,8 +1,7 @@
-import { PanelExtension } from '@atlassian/clientside-extensions';
-import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
+import { PanelExtension } from '@atlassian/clientside-extensions';
 
-import MyApp from './my-app';
+import { MyApp } from './myapp.js';
 
 /**
  * @clientside-extension
@@ -11,16 +10,16 @@ import MyApp from './my-app';
 export default PanelExtension.factory((pluginApi, context) => {
     return {
         hidden: false,
-        onAction: panelApi => {
+        onAction: (panelApi) => {
             const { pullRequest } = context;
 
             panelApi
-                .onMount(element => {
+                .onMount((element) => {
                     console.log('My comment panel extension', context);
 
                     render(<MyApp pullRequest={pullRequest} />, element);
                 })
-                .onUnmount(element => {
+                .onUnmount((element) => {
                     unmountComponentAtNode(element);
                 });
         },

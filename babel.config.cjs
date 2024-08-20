@@ -1,4 +1,4 @@
-module.exports = api => {
+module.exports = (api) => {
     const isTest = api.env('test');
     const testOnly = (entry, defaultValue = {}) => (isTest ? entry : defaultValue);
 
@@ -15,6 +15,6 @@ module.exports = api => {
             ],
             '@babel/preset-react',
         ],
-        plugins: ['@babel/plugin-syntax-dynamic-import', '@babel/plugin-proposal-class-properties'],
+        plugins: ['@babel/plugin-syntax-dynamic-import'],
     };
 };
