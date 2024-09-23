@@ -26,7 +26,7 @@
         <bitbucket.data.version>${bitbucket.version}</bitbucket.data.version>
         <platform.dependencies.version>7.0.14</platform.dependencies.version>
 
-        <atlassian-clientside-extensions.version>3.0.0</atlassian-clientside-extensions.version>
+        <atlassian-clientside-extensions.version>3.1.1</atlassian-clientside-extensions.version>
         <atlassian.spring.scanner.version>3.0.1</atlassian.spring.scanner.version>
 
         <frontend.maven.plugin.version>1.15.0</frontend.maven.plugin.version>
