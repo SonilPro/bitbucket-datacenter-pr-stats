@@ -10,7 +10,7 @@ pipelines:
                         - node
                     script:
                         - apt update -y
-                        - apt install -y openjdk-17-jdk atlassian-plugin-sdk maven
+                        - apt install -y openjdk-17-jdk maven
                         - export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64/"
                         - export ATLAS_MVN="/usr/bin/mvn"
                         - npm ci
@@ -22,7 +22,7 @@ pipelines:
                         - node
                     script:
                         - apt update -y
-                        - apt install -y openjdk-17-jdk atlassian-plugin-sdk maven
+                        - apt install -y openjdk-17-jdk maven
                         - export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64/"
                         - export ATLAS_MVN="/usr/bin/mvn"
                         - npm ci
