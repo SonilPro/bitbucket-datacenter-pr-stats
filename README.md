@@ -18,13 +18,13 @@ This template includes the **Bitbucket** version `9.0.0` and it's using **Client
 To start Bitbucket, first install all the maven dependencies:
 
 ```sh
-atlas-package -DskipTests
+mvn package -DskipTests
 ```
 
 Next, run this command to start Bitbucket:
 
 ```sh
-atlas-run -DskipTests
+mvn amps:run -DskipTests
 ```
 
 ## Developing the plugin
@@ -56,10 +56,10 @@ You should find and replace those values in all the files:
 ## Building plugin
 
 To create a plugin binary that can be installed on a standalone Bitbucket instance or published the marketplace,
-you will have to use the `atlas-package` command:
+you will have to use the `mvn package` command:
 
 ```sh
-atlas-package
+mvn package
 ```
 
 This command will create a `*.jar` and `*.obr` binary files under the `target` directory.
@@ -113,9 +113,9 @@ In you have any other issues related to CSE check the [Debugging and troubleshoo
 If you don't plan to use the [`PageExtension`](https://developer.atlassian.com/server/framework/clientside-extensions/reference/api/extension-factories/page/) you can remove the `page-bootstrapper` dependency from the project:
 
 1. Update the `pom.xml` file:
-   1. Remove the `atlassian-clientside-extensions-page-bootstrapper` dependency from the `dependencies` section
-   2. Remove the `atlassian-clientside-extensions-page-bootstrapper` dependency from the `pluginDependencies` section
-   3. Remove the `com.atlassian.plugin.clientsideextensions` import from the `Import-Package` section
+    1. Remove the `atlassian-clientside-extensions-page-bootstrapper` dependency from the `dependencies` section
+    2. Remove the `atlassian-clientside-extensions-page-bootstrapper` dependency from the `pluginDependencies` section
+    3. Remove the `com.atlassian.plugin.clientsideextensions` import from the `Import-Package` section
 2. Delete the example extensions that are using `PageExtension` API:
     ```
     rm -r src/main/my-app/extensions/pages
@@ -124,10 +124,6 @@ If you don't plan to use the [`PageExtension`](https://developer.atlassian.com/s
 If you do that, you can skip manually installing the `atlassian-clientside-page-bootstrapper.jar` plugin mentioned in the previous step.
 
 ## Links
-
--   [https://developer.atlassian.com/server/framework/atlassian-sdk/atlas-help](https://developer.atlassian.com/server/framework/atlassian-sdk/atlas-help)
-
-    Documentation for all the `atlas-*` CLI commands
 
 -   [https://developer.atlassian.com/server/framework/clientside-extensions/](https://developer.atlassian.com/server/framework/clientside-extensions/)
 
