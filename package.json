@@ -68,9 +68,9 @@
     },
     "scripts": {
         "watch": "NODE_OPTIONS=\"--openssl-legacy-provider\" NODE_ENV=\"development\" webpack --watch --config ./config/webpack.config.js",
-        "start": "atlas-package -DskipTests -Pwatch-mode && npm run dev-server ",
-        "start:bitbucket": "atlas-run -DskipTests -DskipNpmInstall",
-        "build": "atlas-package -DskipTests",
+        "start": "mvn package -DskipTests -Pwatch-mode && npm run dev-server ",
+        "start:bitbucket": "mvn amps:run -DskipTests -DskipNpmInstall",
+        "build": "mvn package -DskipTests",
         "build:prod": "NODE_OPTIONS=\"--openssl-legacy-provider\" NODE_ENV=\"production\" webpack --config ./config/webpack.config.js",
         "build:dev": "NODE_OPTIONS=\"--openssl-legacy-provider\" NODE_ENV=\"development\" webpack --config ./config/webpack.config.js --mode=development",
         "dev-server": "webpack-dev-server --config ./config/webpack.config.js --mode=development --env=dev-server",
