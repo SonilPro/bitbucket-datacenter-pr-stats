@@ -1,4 +1,4 @@
-import WrmPlugin from 'atlassian-webresource-webpack-plugin';
+import WrmPlugin from '@atlassian/webresource-webpack-plugin';
 import { PLUGIN_KEY, WRM_OUTPUT, PROVIDED_DEPENDENCIES } from './webpack-constants.js';
 
 const plugins = (shouldWatch) => [
