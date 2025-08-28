@@ -1,4 +1,4 @@
-import { render, unmountComponentAtNode } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { PanelExtension } from '@atlassian/clientside-extensions';
 
 import { MyApp } from './myapp.js';
@@ -12,15 +12,19 @@ export default PanelExtension.factory((pluginApi, context) => {
         hidden: false,
         onAction: (panelApi) => {
             const { pullRequest } = context;
+            let root;
 
             panelApi
                 .onMount((element) => {
                     console.log('My comment panel extension', context);
 
-                    render(<MyApp pullRequest={pullRequest} />, element);
+                    root = createRoot(element);
+                    root.render(<MyApp pullRequest={pullRequest} />);
                 })
-                .onUnmount((element) => {
-                    unmountComponentAtNode(element);
+                .onUnmount(() => {
+                    if (root) {
+                        root.unmount();
+                    }
                 });
         },
     };

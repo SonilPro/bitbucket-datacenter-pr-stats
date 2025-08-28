@@ -1,6 +1,7 @@
 import TerserPlugin from 'terser-webpack-plugin';
 import { merge } from 'webpack-merge';
 import ClientsideExtensionWebpackPlugin from '@atlassian/clientside-extensions-webpack-plugin';
+import webpack from 'webpack';
 
 import {
     DEV_SERVER_HOST,
@@ -98,7 +99,13 @@ export default (env, argv = {}) => {
             },
 
             context: FRONTEND_SRC_DIR,
-            plugins: [...plugins(!isProduction), clientsideExtensions],
+            plugins: [
+                ...plugins(!isProduction),
+                clientsideExtensions,
+                new webpack.DefinePlugin({
+                    'module.hot': 'false',
+                }),
+            ],
 
             optimization: {
                 splitChunks: {

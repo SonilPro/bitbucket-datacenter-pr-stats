@@ -7,16 +7,16 @@
     "type": "module",
     "dependencies": {
         "@atlaskit/button": "^19.1.0",
-        "@atlassian/clientside-extensions": "^3.1.1",
-        "@atlassian/clientside-extensions-components": "^3.1.1",
+        "@atlassian/clientside-extensions": "^5.1.0",
+        "@atlassian/clientside-extensions-components": "^5.1.0",
         "@atlassian/wrm-react-i18n": "^3.0.2",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2"
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1"
     },
     "devDependencies": {
         "@atlassian/browserslist-config-server": "^0.3.2",
-        "@atlassian/clientside-extensions-schema": "^3.1.1",
-        "@atlassian/clientside-extensions-webpack-plugin": "^3.1.1",
+        "@atlassian/clientside-extensions-schema": "^5.1.0",
+        "@atlassian/clientside-extensions-webpack-plugin": "^5.1.0",
         "@atlassian/i18n-properties-loader": "^1.0.13",
         "@babel/core": "^7.24.7",
         "@babel/eslint-parser": "^7.24.7",
