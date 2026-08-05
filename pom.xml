@@ -20,14 +20,14 @@
     <properties>
         <atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
 
-        <amps.version>8.17.3</amps.version>
+        <amps.version>9.9.1</amps.version>
 
-        <bitbucket.version>9.0.0</bitbucket.version>
+        <bitbucket.version>10.0.0</bitbucket.version>
         <bitbucket.data.version>${bitbucket.version}</bitbucket.data.version>
-        <platform.dependencies.version>7.0.14</platform.dependencies.version>
+        <platform.dependencies.version>8.6.2</platform.dependencies.version>
 
-        <atlassian-clientside-extensions.version>3.1.1</atlassian-clientside-extensions.version>
-        <atlassian.spring.scanner.version>3.0.1</atlassian.spring.scanner.version>
+        <atlassian-clientside-extensions.version>5.0.0</atlassian-clientside-extensions.version>
+        <atlassian.spring.scanner.version>6.0.2</atlassian.spring.scanner.version>
 
         <frontend.maven.plugin.version>1.15.0</frontend.maven.plugin.version>
         <frontend.maven.plugin.install.directory>${project.build.directory}</frontend.maven.plugin.install.directory>

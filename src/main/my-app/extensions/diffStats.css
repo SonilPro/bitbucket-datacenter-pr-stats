@@ -1,0 +1,19 @@
+.diff-stat {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 0px 6px;
+}
+
+.diff-added {
+    color: #1a7f37;
+}
+
+.diff-removed {
+    color: #cf222e;
+}
+.diff-graphic-icon {
+    display: block;
+}
