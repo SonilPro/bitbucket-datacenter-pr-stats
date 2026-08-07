@@ -1,6 +1,7 @@
 import { LinkExtension } from '@atlassian/clientside-extensions';
 import React from 'react';
 import './diffStats.css';
+import contextPath from 'wrm/context-path';
 
 // const DiffGraphicIcon = () => (
 //     <svg
@@ -33,7 +34,7 @@ export default LinkExtension.factory((extensionAPI, context) => {
     const iconBefore = () => <DiffSummaryIcon />;
 
     fetch(
-        `/bitbucket/rest/api/latest/projects/${context.project.key}/repos/${context.repository.slug}/pull-requests/${context.pullRequest.id}/diff-stats-summary`,
+        `${contextPath()}/rest/api/latest/projects/${context.project.key}/repos/${context.repository.slug}/pull-requests/${context.pullRequest.id}/diff-stats-summary`,
         {
             credentials: 'include',
         }
