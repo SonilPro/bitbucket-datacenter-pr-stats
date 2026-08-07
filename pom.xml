@@ -84,13 +84,6 @@
             <artifactId>soy-template-renderer-api</artifactId>
             <scope>provided</scope>
         </dependency>
-
-        <!-- Required for plugins that use page-bootstrapper -->
-        <dependency>
-            <groupId>com.atlassian.plugins</groupId>
-            <artifactId>atlassian-clientside-extensions-page-bootstrapper</artifactId>
-            <version>${atlassian-clientside-extensions.version}</version>
-        </dependency>
     </dependencies>
 
     <build>
@@ -120,27 +113,15 @@
                     </products>
                     <!-- https://developer.atlassian.com/server/framework/atlassian-sdk/bundling-extra-dependencies-in-an-obr/ -->
                     <pluginDependencies>
-                        <pluginDependency>
-                            <groupId>com.atlassian.plugins</groupId>
-                            <artifactId>atlassian-clientside-extensions-page-bootstrapper</artifactId>
-                        </pluginDependency>
                     </pluginDependencies>
                     <!-- Needed to include the bootstrapper when starting the project with AMPS -->
                     <pluginArtifacts>
-                        <pluginArtifact>
-                            <groupId>com.atlassian.plugins</groupId>
-                            <artifactId>atlassian-clientside-extensions-page-bootstrapper</artifactId>
-                            <version>${atlassian-clientside-extensions.version}</version>
-                        </pluginArtifact>
                     </pluginArtifacts>
                     <instructions>
                         <Atlassian-Plugin-Key>${atlassian.plugin.key}</Atlassian-Plugin-Key>
                         <Atlassian-Scan-Folders>META-INF/plugin-descriptors</Atlassian-Scan-Folders>
                         <Import-Package>
                             <!-- https://developer.atlassian.com/server/framework/atlassian-sdk/bundling-extra-dependencies-in-an-obr/ -->
-                            <!-- The "com.atlassian.plugin.clientsideextensions" import is required by the page-bootstrapper package.
-                            If you don't need it, you can remove this line. -->
-                            com.atlassian.plugin.clientsideextensions;version="${atlassian-clientside-extensions.version}",
                             com.atlassian.plugin.osgi.bridge.external,
                             *
                         </Import-Package>
