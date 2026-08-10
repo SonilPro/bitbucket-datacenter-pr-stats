@@ -12,7 +12,7 @@ const FRONTEND_SRC_DIR = join(srcDir, 'main/my-app');
 const FRONTEND_OUTPUT_DIR = join(rootDir, 'target', 'classes');
 
 // Plugin key needs to match the one provide in atlassian-plugin.xml file
-const PLUGIN_KEY = 'com.atlassian.myapp.pr-stats-plugin';
+const PLUGIN_KEY = 'com.aereiz.plugin.pr-stats-plugin';
 
 // Load i18n properties files
 const I18N_FILES = sync('**/*.properties', {

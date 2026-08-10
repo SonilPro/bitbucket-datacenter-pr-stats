@@ -9,7 +9,7 @@
         <version>7.0.0</version>
     </parent>
 
-    <groupId>com.atlassian.myapp</groupId>
+    <groupId>com.aereiz.plugin</groupId>
     <artifactId>pr-stats-plugin</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>atlassian-plugin</packaging>

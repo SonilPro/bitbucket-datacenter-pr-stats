@@ -28,7 +28,7 @@ const DiffSummaryIcon = ({ insertions = 0, deletions = 0 }) => (
 /**
  * @clientside-extension
  * @extension-point bitbucket.ui.pullrequest.overview.summary
- * @condition class com.atlassian.myapp.condition.AlwaysTrueCondition
+ * @condition class com.aereiz.plugin.condition.AlwaysTrueCondition
  */
 export default LinkExtension.factory((extensionAPI, context) => {
     const iconBefore = () => <DiffSummaryIcon />;
