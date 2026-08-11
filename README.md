@@ -37,6 +37,8 @@ It builds the frontend and puts it in the watch mode with hot reload.
 In other words, if you have the whole plugin, and an instance already working,
 this will enable you to make quick changes with an instant preview.
 
+After that run `atlas-run -DskipTests -Pwatch-mode`
+
 ## Using a template to build your plugin
 
 By default, this template has a few pre-defined plugin keys that should be unique for every plugin.

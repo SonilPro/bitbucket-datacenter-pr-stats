@@ -2,6 +2,7 @@ import { LinkExtension } from '@atlassian/clientside-extensions';
 import React from 'react';
 import './diffStats.css';
 import contextPath from 'wrm/context-path';
+import * as navBuilder from 'bitbucket/util/navbuilder';
 
 // const DiffGraphicIcon = () => (
 //     <svg
@@ -33,12 +34,22 @@ const DiffSummaryIcon = ({ insertions = 0, deletions = 0 }) => (
 export default LinkExtension.factory((extensionAPI, context) => {
     const iconBefore = () => <DiffSummaryIcon />;
 
-    fetch(
-        `${contextPath()}/rest/api/latest/projects/${context.project.key}/repos/${context.repository.slug}/pull-requests/${context.pullRequest.id}/diff-stats-summary`,
-        {
-            credentials: 'include',
-        }
-    )
+    const pullRequestUrl = navBuilder
+        .rest('api', 'latest')
+        .project(context.project.key)
+        .repo(context.repository.slug)
+        .pullRequest(context.pullRequest.id)
+        .build();
+    const diffPath = navBuilder
+        .project(context.project.key)
+        .repo(context.repository.slug)
+        .pullRequest(context.pullRequest.id)
+        .diff()
+        .build();
+
+    fetch(`${pullRequestUrl}/diff-stats-summary`, {
+        credentials: 'include',
+    })
         .then((response) => response.json())
         .then((data) => {
             const insertions = data.totalInsertions;
@@ -51,13 +62,15 @@ export default LinkExtension.factory((extensionAPI, context) => {
         })
         .catch((error) => {
             console.error('Error fetching diff stats:', error);
+            extensionAPI.updateAttributes({
+                hidden: true,
+            });
         });
 
     return {
         hidden: false,
         label: '',
-        iconBefore,
-        link: '#',
+        link: diffPath,
         tooltip: 'Diff summary',
         onAction: () => {
             console.log('Diff stats clicked', context);
