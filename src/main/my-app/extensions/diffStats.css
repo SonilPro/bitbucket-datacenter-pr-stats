@@ -7,12 +7,20 @@
     padding: 0px 6px;
 }
 
+.diff-files-changed {
+    color: #6b778c;
+}
+
 .diff-added {
     color: #1a7f37;
 }
 
 .diff-removed {
     color: #cf222e;
+}
+.diff-stat-icon {
+    flex: 0 0 16px;
+    color: #6b778c;
 }
 .diff-graphic-icon {
     display: block;

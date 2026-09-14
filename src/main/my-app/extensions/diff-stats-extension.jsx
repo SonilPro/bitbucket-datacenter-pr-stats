@@ -1,26 +1,34 @@
 import { LinkExtension } from '@atlassian/clientside-extensions';
-import React from 'react';
 import './diffStats.css';
-import contextPath from 'wrm/context-path';
 import * as navBuilder from 'bitbucket/util/navbuilder';
 
-// const DiffGraphicIcon = () => (
-//     <svg
-//         className="diff-graphic-icon"
-//         viewBox="0 0 104 18"
-//         width="104"
-//         height="18"
-//         aria-hidden="true"
-//         focusable="false"
-//         xmlns="http://www.w3.org/2000/svg"
-//     >
-//         <rect x="0" y="2" width="46" height="14" rx="4" fill="#cf222e" />
-//         <rect x="52" y="2" width="52" height="14" rx="4" fill="#1a7f37" />
-//     </svg>
-// );
+const StopwatchIcon = () => (
+    <svg
+        className="diff-stat-icon"
+        viewBox="0 0 32 32"
+        width={32}
+        height={32}
+        aria-hidden="true"
+        focusable="false"
+    >
+        <path
+            d="m13.367 21.82-.012-.015L11.305 20l2.05-1.805a.554.554 0 0 0 .051-.777l-.011-.012-1.09-1.164a.545.545 0 0 0-.774-.023l-3.605 3.383a.546.546 0 0 0 0 .796l3.605 3.383a.56.56 0 0 0 .375.149c.149 0 .301-.063.399-.172l1.09-1.164a.548.548 0 0 0-.028-.774Zm13.75-15.703L21.875.875a3 3 0 0 0-2.117-.883H7A3.012 3.012 0 0 0 4 3v26a3 3 0 0 0 3 3h18a3 3 0 0 0 3-3V8.242c0-.793-.32-1.562-.883-2.125ZM20 3.242 24.758 8H20ZM25 29H7V3h10v6.5c0 .832.668 1.5 1.5 1.5H25Zm-7.898-15.625a.55.55 0 0 0-.684.375L13 25.508a.544.544 0 0 0 .375.68l1.523.445a.553.553 0 0 0 .684-.375L19 14.492a.544.544 0 0 0-.375-.68Zm1.53 4.805.013.015L20.695 20l-2.05 1.805a.554.554 0 0 0-.051.777l.011.012 1.09 1.164c.203.219.555.23.774.023l3.605-3.383a.546.546 0 0 0 0-.796l-3.605-3.383a.545.545 0 0 0-.774.023l-1.09 1.164a.548.548 0 0 0 .028.774Zm0 0"
+            style={{
+                stroke: 'none',
+                fillRule: 'nonzero',
+                fill: '#6b778c',
+                fillOpacity: 1,
+            }}
+        />
+    </svg>
+);
 
-const DiffSummaryIcon = ({ insertions = 0, deletions = 0 }) => (
+const DiffSummaryIcon = ({ insertions = 0, deletions = 0, filesChanged = 0 }) => (
     <span className="diff-stat">
+        <StopwatchIcon />
+        <span className="diff-files-changed">
+            {filesChanged} {filesChanged === 1 ? 'file' : 'files'}
+        </span>
         <span className="diff-added">+{insertions}</span>
         <span className="diff-removed">-{deletions}</span>
     </span>
@@ -32,8 +40,6 @@ const DiffSummaryIcon = ({ insertions = 0, deletions = 0 }) => (
  * @condition class com.aereiz.plugin.condition.AlwaysTrueCondition
  */
 export default LinkExtension.factory((extensionAPI, context) => {
-    const iconBefore = () => <DiffSummaryIcon />;
-
     const pullRequestUrl = navBuilder
         .rest('api', 'latest')
         .project(context.project.key)
@@ -54,10 +60,17 @@ export default LinkExtension.factory((extensionAPI, context) => {
         .then((data) => {
             const insertions = data.totalInsertions;
             const deletions = data.totalDeletions;
-            const tooltip = `${insertions} lines added, ${deletions} lines removed`;
+            const filesChanged = data.filesChanged;
+            const tooltip = `${filesChanged} files changed, ${insertions} lines added, ${deletions} lines removed`;
             extensionAPI.updateAttributes({
                 tooltip,
-                iconBefore: () => <DiffSummaryIcon insertions={insertions} deletions={deletions} />,
+                iconBefore: () => (
+                    <DiffSummaryIcon
+                        insertions={insertions}
+                        deletions={deletions}
+                        filesChanged={filesChanged}
+                    />
+                ),
             });
         })
         .catch((error) => {
