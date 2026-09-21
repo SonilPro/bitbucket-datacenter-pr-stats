@@ -22,7 +22,7 @@
 
         <amps.version>9.9.1</amps.version>
 
-        <bitbucket.version>10.2.0</bitbucket.version>
+        <bitbucket.version>10.4.3</bitbucket.version>
         <bitbucket.data.version>${bitbucket.version}</bitbucket.data.version>
         <platform.dependencies.version>8.6.2</platform.dependencies.version>
 

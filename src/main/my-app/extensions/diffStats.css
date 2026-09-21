@@ -8,7 +8,7 @@
 }
 
 .diff-files-changed {
-    color: #6b778c;
+    color: var(--ds-text-subtle);
 }
 
 .diff-added {
@@ -20,7 +20,7 @@
 }
 .diff-stat-icon {
     flex: 0 0 16px;
-    color: #6b778c;
+    fill: var(--ds-icon-subtle);
 }
 .diff-graphic-icon {
     display: block;

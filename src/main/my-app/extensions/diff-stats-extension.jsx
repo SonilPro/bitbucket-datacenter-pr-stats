@@ -16,7 +16,6 @@ const StopwatchIcon = () => (
             style={{
                 stroke: 'none',
                 fillRule: 'nonzero',
-                fill: '#6b778c',
                 fillOpacity: 1,
             }}
         />
@@ -85,8 +84,5 @@ export default LinkExtension.factory((extensionAPI, context) => {
         label: '',
         link: diffPath,
         tooltip: 'Diff summary',
-        onAction: () => {
-            console.log('Diff stats clicked', context);
-        },
     };
 });
