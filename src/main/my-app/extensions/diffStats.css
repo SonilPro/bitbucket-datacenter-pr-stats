@@ -12,11 +12,11 @@
 }
 
 .diff-added {
-    color: #1a7f37;
+    color: rgb(28, 163, 37);
 }
 
 .diff-removed {
-    color: #cf222e;
+    color: rgb(207, 34, 46);
 }
 .diff-stat-icon {
     flex: 0 0 16px;
