@@ -9,6 +9,20 @@
         <version>7.0.0</version>
     </parent>
 
+    <repositories>
+        <repository>
+            <id>atlassian-public</id>
+            <url>https://packages.atlassian.com/maven-atlassian-all/</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>atlassian-public</id>
+            <url>https://packages.atlassian.com/maven-atlassian-all/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
     <groupId>com.aereiz.plugin</groupId>
     <artifactId>pr-stats-plugin</artifactId>
     <version>1.0.0</version>
