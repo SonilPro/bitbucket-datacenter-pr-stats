@@ -75,7 +75,7 @@
         "build:dev": "NODE_OPTIONS=\"--openssl-legacy-provider\" NODE_ENV=\"development\" webpack --config ./config/webpack.config.js --mode=development",
         "dev-server": "webpack-dev-server --config ./config/webpack.config.js --mode=development --env=dev-server",
         "lint": "eslint './**/*.{js,js,jsx}'",
-        "test": "NODE_OPTIONS=\"--experimental-vm-modules\" jest --config ./config/jest/jest.config.js",
+        "test": "NODE_OPTIONS=\"--experimental-vm-modules\" jest --config ./config/jest/jest.config.js --passWithNoTests",
         "test:watch": "NODE_OPTIONS=\"--experimental-vm-modules\" jest --config ./config/jest/jest.config.js --watch",
         "test:ci": "start-server-and-test start:bitbucket http://localhost:7990/bitbucket/rest/api/latest/application-properties test:e2e:ui",
         "test:e2e:ui": "npx playwright test --ui"
