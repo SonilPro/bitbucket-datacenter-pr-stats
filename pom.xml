@@ -29,7 +29,7 @@
     <packaging>atlassian-plugin</packaging>
 
     <name>Bitbucket PR Stats Plugin</name>
-    <description>Pull Request Stats Plugin - Bitbucket Client-side Extension powered by JavaScript, React, and Atlaskit</description>
+    <description>Pull Request Stats Plugin - Bitbucket Client-side Extension powered by JavaScript, React, and Atlaskit. Source code: https://github.com/SonilPro/bitbucket-datacenter-pr-stats</description>
 
     <properties>
         <atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
