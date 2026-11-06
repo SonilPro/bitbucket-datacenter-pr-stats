@@ -2,8 +2,8 @@
     "name": "pr-stats-plugin",
     "version": "1.0.0",
     "private": true,
-    "author": "Atlassian Pty Ltd",
-    "license": "Atlassian End User License",
+    "author": "Antonio Ereiz <antonio.ereiz@gmail.com>",
+    "license": "MIT",
     "type": "module",
     "dependencies": {
         "@atlaskit/button": "^19.1.0",
